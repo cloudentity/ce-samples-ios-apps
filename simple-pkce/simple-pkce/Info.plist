@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ClientID</key>
+	<string>c8tr6emd59jgck779990</string>
+	<key>TokenEndpoint</key>
+	<string>https://cloudentity-bbray.authz.cloudentity.io/cloudentity-bbray/mobile-demo/oauth2/token</string>
+	<key>AuthorizeEndpoint</key>
+	<string>https://cloudentity-bbray.authz.cloudentity.io/cloudentity-bbray/mobile-demo/oauth2/authorize</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
