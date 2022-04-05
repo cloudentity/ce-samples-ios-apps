@@ -4,21 +4,10 @@ import CryptoKit
 final class CodeGenerator {
     private var verifier: String = ""
     
-    init() {
-        generateNewVerifier()
-    }
-    
-    func generateNewVerifier() {
-        var buffer = [UInt8](repeating: 0, count: 32)
-        _ = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
-        self.verifier  = Data(buffer).base64EncodedString()
-            .replacingOccurrences(of: "+", with: "-")
-            .replacingOccurrences(of: "/", with: "_")
-            .replacingOccurrences(of: "=", with: "")
-            .trimmingCharacters(in: .whitespaces)
-    }
-    
-    func getCodeVerifier() -> String {
+    func getVerifier() -> String {
+        if verifier.isEmpty {
+            fatalError("verifier empty")
+        }
         return verifier
     }
 
@@ -33,6 +22,20 @@ final class CodeGenerator {
         } else {
             fatalError("failed to generate challenge")
         }
+    }
+    
+    func generateVerifier() {
+        var buffer = [UInt8](repeating: 0, count: 32)
+        let status = SecRandomCopyBytes(kSecRandomDefault, buffer.count, &buffer)
+        if status != errSecSuccess {
+            fatalError("failed to generate verifier")
+        }
+        
+        verifier = Data(buffer).base64EncodedString()
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
+            .trimmingCharacters(in: .whitespaces)
     }
 
     private func base64URLEncode<S>(octets: S) -> String where S : Sequence, UInt8 == S.Element {
