@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		761F895227FC811E0045E46A /* TokenSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895127FC811E0045E46A /* TokenSegmentView.swift */; };
-		761F895627FC82A90045E46A /* KeyStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895527FC82A90045E46A /* KeyStore.swift */; };
 		761F895827FC8BF60045E46A /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895727FC8BF60045E46A /* AuthConfig.swift */; };
 		761F895E27FC92DB0045E46A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895D27FC92DB0045E46A /* LoginViewModel.swift */; };
 		761F896027FC95120045E46A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895F27FC95120045E46A /* APIService.swift */; };
@@ -31,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		761F895127FC811E0045E46A /* TokenSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSegmentView.swift; sourceTree = "<group>"; };
-		761F895527FC82A90045E46A /* KeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStore.swift; sourceTree = "<group>"; };
 		761F895727FC8BF60045E46A /* AuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfig.swift; sourceTree = "<group>"; };
 		761F895D27FC92DB0045E46A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		761F895F27FC95120045E46A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
@@ -81,7 +79,6 @@
 			children = (
 				769B959427EBD4EB0055BA96 /* Authenticator.swift */,
 				769B958C27EBD4330055BA96 /* CodeGenerator.swift */,
-				761F895527FC82A90045E46A /* KeyStore.swift */,
 				761F895727FC8BF60045E46A /* AuthConfig.swift */,
 				7659FE0927FCBCCB00C6E672 /* TokenResponse.swift */,
 				7659FE0F27FCD85300C6E672 /* JWT.swift */,
@@ -235,7 +232,6 @@
 				761F896227FC97800045E46A /* LoginView.swift in Sources */,
 				769B958127EBD3470055BA96 /* ContentView.swift in Sources */,
 				769B957F27EBD3470055BA96 /* simple_pkceApp.swift in Sources */,
-				761F895627FC82A90045E46A /* KeyStore.swift in Sources */,
 				769B958F27EBD46C0055BA96 /* URLExtensions.swift in Sources */,
 				7659FE1027FCD85300C6E672 /* JWT.swift in Sources */,
 				761F896027FC95120045E46A /* APIService.swift in Sources */,
