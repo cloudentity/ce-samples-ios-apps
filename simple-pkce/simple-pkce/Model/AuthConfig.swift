@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 struct AuthConfig {
     static let clientID = Bundle.main.object(forInfoDictionaryKey: "ClientID") as! String
@@ -10,4 +11,9 @@ struct AuthConfig {
         let scheme = (urlTypeDict["CFBundleURLSchemes"] as! Array<String>)[0]
         return "\(scheme)://\(urlTypeDict["CFBundleURLName"] as! String)"
     }()
+}
+
+struct AppTheme {
+    static let backgroundColor = UIColor.colorFromHexString("#000000")
+    static let buttonColor = UIColor.colorFromHexString("#333333")
 }

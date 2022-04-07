@@ -5,7 +5,7 @@ struct ContentView: View {
     @State private var selection: Tab = .payload
     
     enum Tab: String {
-        case scopes = "Scopes"
+        case scopes = "Resources"
         case payload = "Payload"
         case header = "Header"
     }
@@ -34,7 +34,7 @@ struct ContentView: View {
                         .tag(Tab.header)
                     ScopesView(scopes: authentication.claims)
                         .tabItem {
-                            Label("Scopes", systemImage: "person.crop.circle")
+                            Label("Resources", systemImage: "icloud.and.arrow.up.fill")
                         }
                         .tag(Tab.scopes)
                     
@@ -46,6 +46,7 @@ struct ContentView: View {
                         Button("Logout") {
                             authentication.updateAuthenticated(res: nil, err: nil)
                         }
+                        .foregroundColor(.black)
                     }
                 }
             }

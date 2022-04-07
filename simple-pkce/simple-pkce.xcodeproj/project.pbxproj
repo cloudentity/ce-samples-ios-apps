@@ -25,7 +25,14 @@
 		769B958F27EBD46C0055BA96 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B958E27EBD46C0055BA96 /* URLExtensions.swift */; };
 		769B959327EBD4C20055BA96 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B959227EBD4C20055BA96 /* Errors.swift */; };
 		769B959527EBD4EB0055BA96 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769B959427EBD4EB0055BA96 /* Authenticator.swift */; };
-		769B959827EBEC370055BA96 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 769B959727EBEC370055BA96 /* README.md */; };
+		76B016DB27FE344A0011C2E8 /* scopeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 76B016DA27FE344A0011C2E8 /* scopeData.json */; };
+		76B016DD27FE35E90011C2E8 /* ScopeResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016DC27FE35E90011C2E8 /* ScopeResource.swift */; };
+		76B016DF27FE37B20011C2E8 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016DE27FE37B20011C2E8 /* ModelData.swift */; };
+		76B016E127FE421C0011C2E8 /* ResourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E027FE421C0011C2E8 /* ResourceViewModel.swift */; };
+		76B016E327FE45560011C2E8 /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E227FE45560011C2E8 /* URLSessionExtensions.swift */; };
+		76B016E527FE4C8A0011C2E8 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E427FE4C8A0011C2E8 /* Remote.swift */; };
+		76B016E727FE4CF70011C2E8 /* ResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E627FE4CF70011C2E8 /* ResourceView.swift */; };
+		76B016E927FE68A30011C2E8 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E827FE68A30011C2E8 /* UIColorExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,7 +56,14 @@
 		769B959227EBD4C20055BA96 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		769B959427EBD4EB0055BA96 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		769B959627EBD5EB0055BA96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		769B959727EBEC370055BA96 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		76B016DA27FE344A0011C2E8 /* scopeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = scopeData.json; sourceTree = "<group>"; };
+		76B016DC27FE35E90011C2E8 /* ScopeResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeResource.swift; sourceTree = "<group>"; };
+		76B016DE27FE37B20011C2E8 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		76B016E027FE421C0011C2E8 /* ResourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceViewModel.swift; sourceTree = "<group>"; };
+		76B016E227FE45560011C2E8 /* URLSessionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtensions.swift; sourceTree = "<group>"; };
+		76B016E427FE4C8A0011C2E8 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
+		76B016E627FE4CF70011C2E8 /* ResourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceView.swift; sourceTree = "<group>"; };
+		76B016E827FE68A30011C2E8 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +84,7 @@
 				761F896127FC97800045E46A /* LoginView.swift */,
 				761F895127FC811E0045E46A /* TokenSegmentView.swift */,
 				7659FE1127FCDCB200C6E672 /* ScopesView.swift */,
+				76B016E627FE4CF70011C2E8 /* ResourceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -77,11 +92,15 @@
 		761F894F27FC80F80045E46A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				761F896327FC9BE70045E46A /* Authentication.swift */,
 				769B959427EBD4EB0055BA96 /* Authenticator.swift */,
 				769B958C27EBD4330055BA96 /* CodeGenerator.swift */,
 				761F895727FC8BF60045E46A /* AuthConfig.swift */,
 				7659FE0927FCBCCB00C6E672 /* TokenResponse.swift */,
 				7659FE0F27FCD85300C6E672 /* JWT.swift */,
+				76B016DC27FE35E90011C2E8 /* ScopeResource.swift */,
+				76B016DE27FE37B20011C2E8 /* ModelData.swift */,
+				76B016E427FE4C8A0011C2E8 /* Remote.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -92,6 +111,8 @@
 				769B958E27EBD46C0055BA96 /* URLExtensions.swift */,
 				769B959227EBD4C20055BA96 /* Errors.swift */,
 				7659FE0D27FCCD5000C6E672 /* DataExtensions.swift */,
+				76B016E227FE45560011C2E8 /* URLSessionExtensions.swift */,
+				76B016E827FE68A30011C2E8 /* UIColorExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -107,8 +128,8 @@
 		761F896527FCA56C0045E46A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				761F896327FC9BE70045E46A /* Authentication.swift */,
 				761F895D27FC92DB0045E46A /* LoginViewModel.swift */,
+				76B016E027FE421C0011C2E8 /* ResourceViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -132,12 +153,12 @@
 		769B957D27EBD3470055BA96 /* simple-pkce */ = {
 			isa = PBXGroup;
 			children = (
+				76B016D927FE332D0011C2E8 /* Resources */,
 				761F896527FCA56C0045E46A /* ViewModel */,
 				761F895C27FC92070045E46A /* Services */,
 				761F895927FC8C430045E46A /* Helpers */,
 				761F894F27FC80F80045E46A /* Model */,
 				761F894E27FC80F00045E46A /* Views */,
-				769B959727EBEC370055BA96 /* README.md */,
 				769B959627EBD5EB0055BA96 /* Info.plist */,
 				769B957E27EBD3470055BA96 /* simple_pkceApp.swift */,
 				769B958227EBD3480055BA96 /* Assets.xcassets */,
@@ -152,6 +173,14 @@
 				769B958527EBD3480055BA96 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		76B016D927FE332D0011C2E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				76B016DA27FE344A0011C2E8 /* scopeData.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,8 +241,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				769B959827EBEC370055BA96 /* README.md in Resources */,
 				769B958627EBD3480055BA96 /* Preview Assets.xcassets in Resources */,
+				76B016DB27FE344A0011C2E8 /* scopeData.json in Resources */,
 				769B958327EBD3480055BA96 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,11 +265,18 @@
 				7659FE1027FCD85300C6E672 /* JWT.swift in Sources */,
 				761F896027FC95120045E46A /* APIService.swift in Sources */,
 				769B959327EBD4C20055BA96 /* Errors.swift in Sources */,
+				76B016DF27FE37B20011C2E8 /* ModelData.swift in Sources */,
+				76B016E327FE45560011C2E8 /* URLSessionExtensions.swift in Sources */,
 				7659FE1227FCDCB200C6E672 /* ScopesView.swift in Sources */,
 				7659FE0E27FCCD5000C6E672 /* DataExtensions.swift in Sources */,
+				76B016E927FE68A30011C2E8 /* UIColorExtensions.swift in Sources */,
 				761F895827FC8BF60045E46A /* AuthConfig.swift in Sources */,
 				761F895227FC811E0045E46A /* TokenSegmentView.swift in Sources */,
+				76B016E527FE4C8A0011C2E8 /* Remote.swift in Sources */,
+				76B016E727FE4CF70011C2E8 /* ResourceView.swift in Sources */,
+				76B016E127FE421C0011C2E8 /* ResourceViewModel.swift in Sources */,
 				761F896427FC9BE70045E46A /* Authentication.swift in Sources */,
+				76B016DD27FE35E90011C2E8 /* ScopeResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +405,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"simple-pkce/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "simple-pkce/Info.plist";
@@ -398,6 +435,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"simple-pkce/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "simple-pkce/Info.plist";

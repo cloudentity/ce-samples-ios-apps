@@ -1,0 +1,17 @@
+[
+    {
+        "scope":"openid",
+        "title": "OpenID",
+        "url": "https://gorest.co.in/public/v2/users/2906"
+      },
+    {
+      "scope":"email",
+        "title": "Email",
+        "url": "https://gorest.co.in/public/v2/users/2900"
+      },
+    {
+      "scope":"profile",
+        "title": "Profile",
+        "url": "https://gorest.co.in/public/v2/users/2901"
+      }
+  ]

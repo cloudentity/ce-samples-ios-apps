@@ -31,3 +31,9 @@ enum AuthError: LocalizedError {
         }
     }
 }
+
+enum ScopeResourceError: Error {
+    case networkFailure(Error)
+    case authError(Error)
+    case badURL
+}
