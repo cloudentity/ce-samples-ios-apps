@@ -13,11 +13,13 @@ struct TokenSegmentView: View {
                 Text("Error parsing JWT!")
             } else {
                 ScrollView {
-                    Text(data!).padding().font(.system(size: 12)).background(.white)
+                    Text(data!).padding().font(.system(size: 12))
                 }.cornerRadius(30)
             }
             
         }.foregroundColor(.black)
+            .frame(maxWidth: .infinity)
+            .background(AppTheme.backgroundColor)
     }
 }
 

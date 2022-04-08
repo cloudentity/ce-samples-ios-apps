@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var authentication: Authentication
+    @EnvironmentObject var store: Store
     @State private var selection: Tab = .payload
     
     enum Tab: String {
@@ -11,46 +11,52 @@ struct ContentView: View {
     }
     
     var body: some View {
-        NavigationView {
-            if authentication.err != nil {
+            NavigationView {
                 VStack {
-                    Text(authentication.err!.localizedDescription)
-                    Button("Log out") {
-                        authentication.updateAuthenticated(res: nil, err: nil)
-                    }.foregroundColor(.red).padding()
-                }
-            } else {
-                TabView(selection: $selection) {
-                    TokenSegmentView(data: authentication.jwt?.decodedPayload())
-                        .tabItem {
-                            Label("Payload", systemImage: "tray.circle")
+                    if store.err != nil {
+                        VStack {
+                            Text(store.err!.localizedDescription)
+                            Button("Log out") {
+                                store.updateAuthenticated(res: nil, err: nil)
+                            }.foregroundColor(.red).padding()
                         }
-                        .tag(Tab.payload)
-                    
-                    TokenSegmentView(data: authentication.jwt?.decodedHeader())
-                        .tabItem {
-                            Label("Header", systemImage: "pencil.tip")
+                    } else {
+                        TabView(selection: $selection) {
+                            TokenSegmentView(data: store.jwt?.decodedPayload())
+                                .tabItem {
+                                    Label("Payload", systemImage: "tray.circle")
+                                }
+                                .tag(Tab.payload)
+                            
+                            TokenSegmentView(data: store.jwt?.decodedHeader())
+                                .tabItem {
+                                    Label("Header", systemImage: "pencil.tip")
+                                }
+                                .tag(Tab.header)
+                            ScopesView(scopes: store.claims)
+                                .tabItem {
+                                    Label("Resources", systemImage: "icloud.and.arrow.up.fill")
+                                }
+                                .tag(Tab.scopes)
+                            
                         }
-                        .tag(Tab.header)
-                    ScopesView(scopes: authentication.claims)
-                        .tabItem {
-                            Label("Resources", systemImage: "icloud.and.arrow.up.fill")
+                        .padding()
+                        .navigationTitle(selection.rawValue)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button("Logout") {
+                                    store.updateAuthenticated(res: nil, err: nil)
+                                }
+                                .foregroundColor(.black)
+                            }
                         }
-                        .tag(Tab.scopes)
-                    
-                }
-                .padding()
-                .navigationTitle(selection.rawValue)
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button("Logout") {
-                            authentication.updateAuthenticated(res: nil, err: nil)
-                        }
-                        .foregroundColor(.black)
                     }
                 }
-            }
+                .frame(maxWidth: .infinity)
+                .ignoresSafeArea()
+                .background(AppTheme.backgroundColor)
         }
+        
     }
 }
 

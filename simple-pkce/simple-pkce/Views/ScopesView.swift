@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ScopesView: View {
-    @EnvironmentObject var modelData: ModelData
+    @EnvironmentObject var store: Store
     @State private var alertVisible = false
     @State private var currentResource: ScopeResource?
     var scopes: [String] = []
@@ -13,25 +13,29 @@ struct ScopesView: View {
     }
     
     var scopeResourceButtons: [ScopeResource] {
-        modelData.scopeResources.filter { self.scopes.contains($0.scope)}
+        store.scopeResources.filter { self.scopes.contains($0.scope)}
     }
     
     var body: some View {
         VStack {
-            if modelData.scopeResources.isEmpty {
+            Spacer()
+            if store.scopeResources.isEmpty {
                 Text("Error getting scopes from JWT!")
             } else {
-                ForEach(modelData.scopeResources, id: \.self) { scope in
-                    NavigationLink(scope.title, destination: ResourceView(URL(string: scope.url)!))
+                ForEach(store.scopeResources, id: \.self) { scope in
+                    NavigationLink(scope.title, destination: ResourceView(URL(string: scope.url)!, token: store.jwt?.getRawToken()))
                         .frame(width: 160, height: 20, alignment: .center)
                         .padding()
                         .foregroundColor(.white)
-                        .background(Color.black)
+                        .background(AppTheme.buttonColor)
                         .cornerRadius(30)
                 }
                 Spacer()
             }
+            Spacer()
         }
+        .frame(maxWidth: .infinity)
+        .background(AppTheme.backgroundColor)
     }
 }
 

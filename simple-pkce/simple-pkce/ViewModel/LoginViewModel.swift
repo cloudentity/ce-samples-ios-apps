@@ -14,7 +14,6 @@ class LoginViewModel: ObservableObject {
                     case .success(let res):
                         completion(res, nil)
                     case .failure(let err):
-                        print("failed login \(err)")
                         completion(nil, err)
                     }
                 }

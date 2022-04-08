@@ -1,11 +1,12 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject var authentication: Authentication
+    @EnvironmentObject var store: Store
     @StateObject private var loginViewModel = LoginViewModel()
     
     var body: some View {
         VStack {
+            Spacer()
             if loginViewModel.showProgress {
                 ProgressView()
             }
@@ -15,20 +16,25 @@ struct LoginView: View {
                     .font(.title)
                 Button("Sign In") {
                     loginViewModel.login { res, err in
-                        authentication.updateAuthenticated(res: res, err: err)
+                        store.updateAuthenticated(res: res, err: err)
                     }
                 }
             }
             .frame(width: 160, height: 20, alignment: .center)
             .padding()
             .foregroundColor(.white)
-            .background(Color.black)
+            .background(AppTheme.buttonColor)
             .cornerRadius(30)
-            if authentication.err != nil {
-                Text(authentication.err!.localizedDescription).foregroundColor(.red).padding()
+            if store.err != nil {
+                Text(store.err!.localizedDescription).foregroundColor(.red).padding()
             }
+            Spacer()
         }
+        .frame(maxWidth: .infinity)
+        .ignoresSafeArea()
+        .background(AppTheme.backgroundColor)
         .disabled(loginViewModel.showProgress)
+        
     }
 }
 
@@ -37,3 +43,4 @@ struct LoginView_Previews: PreviewProvider {
         LoginView()
     }
 }
+    

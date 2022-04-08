@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		761F895227FC811E0045E46A /* TokenSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895127FC811E0045E46A /* TokenSegmentView.swift */; };
-		761F895827FC8BF60045E46A /* AuthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895727FC8BF60045E46A /* AuthConfig.swift */; };
+		761F895827FC8BF60045E46A /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895727FC8BF60045E46A /* Config.swift */; };
 		761F895E27FC92DB0045E46A /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895D27FC92DB0045E46A /* LoginViewModel.swift */; };
 		761F896027FC95120045E46A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F895F27FC95120045E46A /* APIService.swift */; };
 		761F896227FC97800045E46A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F896127FC97800045E46A /* LoginView.swift */; };
-		761F896427FC9BE70045E46A /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F896327FC9BE70045E46A /* Authentication.swift */; };
+		761F896427FC9BE70045E46A /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761F896327FC9BE70045E46A /* Store.swift */; };
 		7659FE0A27FCBCCB00C6E672 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659FE0927FCBCCB00C6E672 /* TokenResponse.swift */; };
 		7659FE0E27FCCD5000C6E672 /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659FE0D27FCCD5000C6E672 /* DataExtensions.swift */; };
 		7659FE1027FCD85300C6E672 /* JWT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7659FE0F27FCD85300C6E672 /* JWT.swift */; };
@@ -28,7 +28,6 @@
 		76B016DB27FE344A0011C2E8 /* scopeData.json in Resources */ = {isa = PBXBuildFile; fileRef = 76B016DA27FE344A0011C2E8 /* scopeData.json */; };
 		76B016DD27FE35E90011C2E8 /* ScopeResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016DC27FE35E90011C2E8 /* ScopeResource.swift */; };
 		76B016DF27FE37B20011C2E8 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016DE27FE37B20011C2E8 /* ModelData.swift */; };
-		76B016E127FE421C0011C2E8 /* ResourceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E027FE421C0011C2E8 /* ResourceViewModel.swift */; };
 		76B016E327FE45560011C2E8 /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E227FE45560011C2E8 /* URLSessionExtensions.swift */; };
 		76B016E527FE4C8A0011C2E8 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E427FE4C8A0011C2E8 /* Remote.swift */; };
 		76B016E727FE4CF70011C2E8 /* ResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76B016E627FE4CF70011C2E8 /* ResourceView.swift */; };
@@ -37,11 +36,11 @@
 
 /* Begin PBXFileReference section */
 		761F895127FC811E0045E46A /* TokenSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSegmentView.swift; sourceTree = "<group>"; };
-		761F895727FC8BF60045E46A /* AuthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthConfig.swift; sourceTree = "<group>"; };
+		761F895727FC8BF60045E46A /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		761F895D27FC92DB0045E46A /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		761F895F27FC95120045E46A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		761F896127FC97800045E46A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		761F896327FC9BE70045E46A /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
+		761F896327FC9BE70045E46A /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		7659FE0927FCBCCB00C6E672 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		7659FE0D27FCCD5000C6E672 /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		7659FE0F27FCD85300C6E672 /* JWT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWT.swift; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 		76B016DA27FE344A0011C2E8 /* scopeData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = scopeData.json; sourceTree = "<group>"; };
 		76B016DC27FE35E90011C2E8 /* ScopeResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopeResource.swift; sourceTree = "<group>"; };
 		76B016DE27FE37B20011C2E8 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
-		76B016E027FE421C0011C2E8 /* ResourceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceViewModel.swift; sourceTree = "<group>"; };
 		76B016E227FE45560011C2E8 /* URLSessionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionExtensions.swift; sourceTree = "<group>"; };
 		76B016E427FE4C8A0011C2E8 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		76B016E627FE4CF70011C2E8 /* ResourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceView.swift; sourceTree = "<group>"; };
@@ -92,10 +90,10 @@
 		761F894F27FC80F80045E46A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				761F896327FC9BE70045E46A /* Authentication.swift */,
+				761F896327FC9BE70045E46A /* Store.swift */,
 				769B959427EBD4EB0055BA96 /* Authenticator.swift */,
 				769B958C27EBD4330055BA96 /* CodeGenerator.swift */,
-				761F895727FC8BF60045E46A /* AuthConfig.swift */,
+				761F895727FC8BF60045E46A /* Config.swift */,
 				7659FE0927FCBCCB00C6E672 /* TokenResponse.swift */,
 				7659FE0F27FCD85300C6E672 /* JWT.swift */,
 				76B016DC27FE35E90011C2E8 /* ScopeResource.swift */,
@@ -129,7 +127,6 @@
 			isa = PBXGroup;
 			children = (
 				761F895D27FC92DB0045E46A /* LoginViewModel.swift */,
-				76B016E027FE421C0011C2E8 /* ResourceViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -270,12 +267,11 @@
 				7659FE1227FCDCB200C6E672 /* ScopesView.swift in Sources */,
 				7659FE0E27FCCD5000C6E672 /* DataExtensions.swift in Sources */,
 				76B016E927FE68A30011C2E8 /* UIColorExtensions.swift in Sources */,
-				761F895827FC8BF60045E46A /* AuthConfig.swift in Sources */,
+				761F895827FC8BF60045E46A /* Config.swift in Sources */,
 				761F895227FC811E0045E46A /* TokenSegmentView.swift in Sources */,
 				76B016E527FE4C8A0011C2E8 /* Remote.swift in Sources */,
 				76B016E727FE4CF70011C2E8 /* ResourceView.swift in Sources */,
-				76B016E127FE421C0011C2E8 /* ResourceViewModel.swift in Sources */,
-				761F896427FC9BE70045E46A /* Authentication.swift in Sources */,
+				761F896427FC9BE70045E46A /* Store.swift in Sources */,
 				76B016DD27FE35E90011C2E8 /* ScopeResource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -2,16 +2,16 @@
     {
         "scope":"openid",
         "title": "OpenID",
-        "url": "https://gorest.co.in/public/v2/users/2906"
+        "url": "http://localhost:8080/pets"
       },
     {
       "scope":"email",
         "title": "Email",
-        "url": "https://gorest.co.in/public/v2/users/2900"
+        "url": "http://localhost:8080/pets/1"
       },
     {
       "scope":"profile",
         "title": "Profile",
-        "url": "https://gorest.co.in/public/v2/users/2901"
+        "url": "http://localhost:8080/pets/2"
       }
   ]

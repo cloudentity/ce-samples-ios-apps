@@ -22,7 +22,7 @@ final class Authenticator: NSObject, ObservableObject, ASWebAuthenticationPresen
         { [self] callbackURL, error in
             
             guard error == nil else {
-                completion(.failure(.authRequestFailed(error!)))
+                completion(.failure(.cancelled))
                 return
             }
 

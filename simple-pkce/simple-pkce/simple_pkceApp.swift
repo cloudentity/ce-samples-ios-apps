@@ -2,17 +2,15 @@ import SwiftUI
 
 @main
 struct simple_pkceApp: App {
-    @StateObject var authentication = Authentication()
-    @StateObject private var modelData = ModelData()
+    @StateObject var store = Store()
     var body: some Scene {
         WindowGroup {
-            if authentication.isAuthenticated {
+            if store.isAuthenticated {
                 ContentView()
-                    .environmentObject(authentication)
-                    .environmentObject(modelData)
+                    .environmentObject(store)
             } else {
                 LoginView()
-                    .environmentObject(authentication)
+                    .environmentObject(store)
             }
         }
     }
