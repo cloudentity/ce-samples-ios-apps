@@ -1,10 +1,3 @@
-//
-//  KeychainHelper.swift
-//  simple-pkce
-//
-//  Created by Billy Bray on 4/8/22.
-//
-
 import Foundation
 
 enum KeychainError: Error {
