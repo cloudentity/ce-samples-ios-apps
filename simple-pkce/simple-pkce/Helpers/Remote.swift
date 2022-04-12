@@ -17,8 +17,10 @@ final class Remote<A>: ObservableObject {
     }
 
     func load() {
-        DispatchQueue.main.async {
-            APIService().fetchResource(url: self.url, token: self.token) { data, res, err in
+        let request = self.getRequest(url: self.url)
+        
+        URLSession.shared.dataTask(with: request) { data, res, err in
+            DispatchQueue.main.async {
                 if let d = data, let v = self.transform(d) {
                     print(v)
                     self.result = .success(v)
@@ -31,9 +33,24 @@ final class Remote<A>: ObservableObject {
                     if let err = err {
                         errorMessage = err.localizedDescription
                     }
-                    self.result = .failure(AuthError.resourceError("unknown error \(errorMessage)"))
+                    self.result = .failure(AuthError.resourceError(errorMessage))
                 }
             }
-        }
+        }.resume()
     }
 }
+
+extension Remote {
+    func getRequest(url: URL) -> URLRequest {
+        var request = URLRequest(url: self.url)
+        request.httpMethod = "GET"
+
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        if let token = self.token {
+            request.setValue( "Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        return request
+    }
+}
+

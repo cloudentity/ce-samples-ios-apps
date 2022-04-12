@@ -1,12 +1,10 @@
 import AuthenticationServices
 
-final class Authenticator: NSObject, ObservableObject, ASWebAuthenticationPresentationContextProviding {
+final class Authenticator: NSObject, ASWebAuthenticationPresentationContextProviding {
     private var codeGenerator = CodeGenerator()
-    let transform: (Data)->TokenResponse?
-    let completion: (Result<TokenResponse, AuthError>) -> Void
-    
-    init(transform: @escaping(Data)->TokenResponse?, completion: @escaping (Result<TokenResponse, AuthError>) -> Void) {
-        self.transform = transform
+    let completion: (TokenResponse?, AuthError?) -> Void
+
+    init(completion: @escaping (TokenResponse?, AuthError?) -> Void) {
         self.completion = completion
     }
 
@@ -14,7 +12,7 @@ final class Authenticator: NSObject, ObservableObject, ASWebAuthenticationPresen
         codeGenerator.generateVerifier()
         
         guard let authURL = URL(string: AuthConfig.authEndpoint)?.getAuthURL(clientID: AuthConfig.clientID, challenge: codeGenerator.getChallenge(), urlScheme: AuthConfig.urlScheme) else {
-            completion(.failure(.failedToSetAuthURL))
+            self.completion(nil, .failedToSetAuthURL)
             return
         }
 
@@ -22,22 +20,22 @@ final class Authenticator: NSObject, ObservableObject, ASWebAuthenticationPresen
         { [self] callbackURL, error in
             
             guard error == nil else {
-                completion(.failure(.cancelled))
+                self.completion(nil, .cancelled)
                 return
             }
 
             guard let callbackURL = callbackURL else {
-                completion(.failure(.callbackMissingCallbackURL))
+                self.completion(nil, .callbackMissingCallbackURL)
                 return
             }
             
             guard callbackURL.getQueryParam(value: "error") == nil else {
-                completion(.failure(.errorReturnedFromAuthorize(callbackURL.getQueryParam(value: "error")!)))
+                self.completion(nil, .errorReturnedFromAuthorize(callbackURL.getQueryParam(value: "error")!))
                 return
             }
             
             guard let code = callbackURL.getQueryParam(value: "code") else {
-                completion(.failure(.callbackMissingCode))
+                self.completion(nil, .callbackMissingCode)
                 return
             }
 
@@ -50,24 +48,31 @@ final class Authenticator: NSObject, ObservableObject, ASWebAuthenticationPresen
     
     private func fetchToken(code: String) {
         guard let url = URL(string: AuthConfig.tokenEndpoint) else {
-            completion(.failure(.failedToGetTokenEndpoint))
+            self.completion(nil, .failedToGetTokenEndpoint)
             return
         }
         
         let verifier = self.codeGenerator.getVerifier()
         let request = url.getTokenRequest(clientID: AuthConfig.clientID, verifier: verifier, code: code, urlScheme: AuthConfig.urlScheme)
         
-        URLSession.shared.dataTask(with: request) { [unowned self]
+        URLSession.shared.dataTask(with: request) { [weak self]
             data,_,err in
             if err != nil {
-                completion(.failure(.tokenRequestFailed(err!)))
+                self?.completion(nil, .tokenRequestFailed(err!))
                 return
             }
             
-            if let d = data, let v = self.transform(d) {
-                completion(.success(v))
-            } else {
-                completion(.failure(.unableToParseTokenResponse))
+            DispatchQueue.main.async {
+                guard let data = data else {
+                    self?.completion(nil, .unableToParseTokenResponse)
+                    return
+                }
+                do {
+                    let v = try JSONDecoder().decode(TokenResponse.self, from: data)
+                    self?.completion(v, nil)
+                } catch {
+                    self?.completion(nil, .unableToParseTokenResponse)
+                }
             }
         }.resume()
     }

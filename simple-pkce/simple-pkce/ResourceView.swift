@@ -1,10 +1,3 @@
-//
-//  ResourceView.swift
-//  simple-pkce
-//
-//  Created by Billy Bray on 4/6/22.
-//
-
 import SwiftUI
 
 struct ResourceView: View {
@@ -12,7 +5,6 @@ struct ResourceView: View {
     
     init(_ url: URL, token: String?) {
         resource = Remote(token: token,url: url, transform: { $0.prettyJson })
-        resource.load()
     }
 
     var body: some View {
@@ -30,8 +22,10 @@ struct ResourceView: View {
             }
             Spacer()
         }
+        .onAppear {
+            resource.load()
+        }
         .frame(maxWidth: .infinity)
-        .background(AppTheme.backgroundColor)
     }
 }
 

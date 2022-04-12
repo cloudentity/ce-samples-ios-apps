@@ -13,7 +13,3 @@ struct AuthConfig {
     }()
 }
 
-struct AppTheme {
-    static let backgroundColor = UIColor.colorFromHexString("#ffffff")
-    static let buttonColor = UIColor.colorFromHexString("000000")
-}

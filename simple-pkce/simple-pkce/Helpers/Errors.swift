@@ -21,7 +21,7 @@ enum AuthError: LocalizedError {
         case .failedToSetAuthURL:
             return "failed to set authorization URL"
         case .cancelled:
-            return "cancelled"
+            return "cancelled login"
         case .callbackMissingCallbackURL:
             return "authorization response does not include the callback URL"
         case .errorReturnedFromAuthorize(let message):

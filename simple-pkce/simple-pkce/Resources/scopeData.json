@@ -13,5 +13,10 @@
       "scope":"profile",
         "title": "Profile",
         "url": "http://localhost:8080/pets/2"
+    },
+    {
+      "scope":"phone",
+        "title": "Phone",
+        "url": "http://localhost:8080/pets/2"
       }
-  ]
+]
