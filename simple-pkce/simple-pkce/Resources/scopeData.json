@@ -3,12 +3,12 @@
         "scope":"openid",
         "title": "OpenID",
         "url": "http://localhost:8080/pets"
-      },
+    },
     {
       "scope":"email",
         "title": "Email",
         "url": "http://localhost:8080/pets/1"
-      },
+    },
     {
       "scope":"profile",
         "title": "Some name",

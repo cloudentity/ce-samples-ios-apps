@@ -10,7 +10,7 @@ struct ContentView: View {
                     HomeView()
                         .toolbar {
                             Button(action: {
-                                modelData.tokenResponse = nil
+                                modelData.setToken(token: nil)
                             }) {
                                Image(systemName: "rectangle.portrait.and.arrow.right")
                             }

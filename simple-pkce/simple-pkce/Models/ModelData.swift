@@ -4,6 +4,10 @@ final class ModelData: ObservableObject {
     @Published var scopeResources: [ScopeResource] = load("scopeData.json")
     @Published var tokenResponse: TokenResponse?
     let theme: Theme = Theme.main
+//    
+//    init() {
+//       // checkStored()
+//    }
     
     func setToken(token: TokenResponse?) {
         var encodedData: Data?
@@ -20,7 +24,11 @@ final class ModelData: ObservableObject {
             return
         }
 
-        KeychainHelper.shared.update(token: jsonString)
+        if let _ = KeychainHelper.shared.get() {
+            KeychainHelper.shared.update(token: jsonString)
+        } else {
+            KeychainHelper.shared.add(token: jsonString)
+        }
 
         self.tokenResponse = token
     }
