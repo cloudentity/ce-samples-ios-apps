@@ -11,12 +11,12 @@
       },
     {
       "scope":"profile",
-        "title": "Profile",
+        "title": "Some name",
         "url": "http://localhost:8080/pets/2"
     },
     {
       "scope":"phone",
         "title": "Phone",
         "url": "http://localhost:8080/pets/2"
-      }
+    }
 ]
