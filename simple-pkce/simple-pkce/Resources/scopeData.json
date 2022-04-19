@@ -1,22 +1,22 @@
 [
     {
         "scope":"openid",
-        "title": "OpenID",
-        "url": "http://localhost:8080/pets"
+        "title": "Transfer",
+        "url": "http://localhost:8080/banking/transfer"
     },
     {
       "scope":"email",
-        "title": "Email",
-        "url": "http://localhost:8080/pets/1"
+        "title": "Balance",
+        "url": "http://localhost:8080/banking/balance"
     },
     {
       "scope":"profile",
         "title": "Some name",
-        "url": "http://localhost:8080/pets/2"
+        "url": "http://localhost:8080/pets/pet/2"
     },
     {
       "scope":"phone",
         "title": "Phone",
-        "url": "http://localhost:8080/pets/2"
+        "url": "http://localhost:8080/pets/pet/1"
     }
 ]

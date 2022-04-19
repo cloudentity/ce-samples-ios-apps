@@ -13,7 +13,7 @@ struct ScopesView: View {
         VStack {
             Spacer()
             ForEach(scopeResourceButtons, id: \.self) { scope in
-                NavigationLink(scope.title, destination: ResourceView(URL(string: scope.url)!, token: modelData.tokenResponse?.getRawToken()))
+                NavigationLink(scope.title, destination: ResourceView(modelData, url: URL(string: scope.url)!))
                     .frame(width: 160, height: 20, alignment: .center)
                     .padding()
                     .foregroundColor(modelData.theme.accentColor)

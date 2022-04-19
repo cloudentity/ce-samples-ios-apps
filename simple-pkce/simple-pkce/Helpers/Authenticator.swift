@@ -82,4 +82,33 @@ extension Authenticator {
     func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
         return ASPresentationAnchor()
     }
+    
+    static func refreshToken(refreshToken: String, completion: @escaping (TokenResponse?, AuthError?) -> Void) {
+        
+        guard let url = URL(string: AuthConfig.tokenEndpoint) else {
+            completion(nil, .failedToGetTokenEndpoint)
+            return
+        }
+        
+        let request = url.getRefreshToken(clientID: AuthConfig.clientID, token: refreshToken, urlScheme: AuthConfig.urlScheme)
+        URLSession.shared.dataTask(with: request) { data,res,err in
+
+            if err != nil {
+                completion(nil, .tokenRequestFailed(err!))
+                return
+            }
+            guard let data = data else {
+                completion(nil, .unableToParseTokenResponse)
+                return
+            }
+            do {
+                let str = String(decoding: data, as: UTF8.self)
+                print(str)
+                let v = try JSONDecoder().decode(TokenResponse.self, from: data)
+                completion(v, nil)
+            } catch  {
+                completion(nil, .unableToParseTokenResponse)
+            }
+        }.resume()
+    }
 }

@@ -15,7 +15,7 @@ enum AuthError: LocalizedError {
     var localizedDescription: String {
         switch self {
         case .resourceError(let status):
-            return "error: \(status)"
+            return "Status code: \(status)"
         case .unknown:
             return "error unknown"
         case .failedToSetAuthURL:
@@ -33,7 +33,7 @@ enum AuthError: LocalizedError {
         case .unableToParseTokenResponse:
             return "unable to parse token response"
         case .failedToGetTokenEndpoint:
-            return "unable to get token endpoint - check the URL is correct and set in AuthClientConfig"
+            return "unable to get token endpoint - check the URL is correct and set in Config"
         }
     }
 }

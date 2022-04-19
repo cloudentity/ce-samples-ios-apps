@@ -4,12 +4,14 @@ final class ModelData: ObservableObject {
     @Published var scopeResources: [ScopeResource] = load("scopeData.json")
     @Published var tokenResponse: TokenResponse?
     let theme: Theme = Theme.main
-//    
-//    init() {
-//       // checkStored()
-//    }
     
     func setToken(token: TokenResponse?) {
+        guard let token = token else {
+            self.tokenResponse = nil
+            KeychainHelper.shared.delete()
+            return
+        }
+        
         var encodedData: Data?
         do {
             encodedData = try JSONEncoder().encode(token)
@@ -18,8 +20,7 @@ final class ModelData: ObservableObject {
             return
         }
         
-        guard let data = encodedData, let jsonString = String(data: data,
-                                      encoding: .utf8) else {
+        guard let data = encodedData, let jsonString = String(data: data, encoding: .utf8) else {
             KeychainHelper.shared.delete()
             return
         }
@@ -33,23 +34,20 @@ final class ModelData: ObservableObject {
         self.tokenResponse = token
     }
     
-    private func checkStored() {
+    func checkStored() -> Bool {
         guard let tokenResp = fetchStoredToken() else {
-            return
+            return false
         }
-
         self.tokenResponse = tokenResp
+        return true
     }
     
     private func fetchStoredToken() -> TokenResponse? {
         var tokenResponse: TokenResponse?
-        if let token = KeychainHelper.shared.get(){
+        if let token = KeychainHelper.shared.get() {
             do {
-                print("found trying \(token)")
                 tokenResponse = try JSONDecoder().decode(TokenResponse.self, from: Data(token.utf8))
             } catch {
-                print("found failing")
-
                 tokenResponse = nil
             }
         }
@@ -60,8 +58,7 @@ final class ModelData: ObservableObject {
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
     
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-    else {
+    guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
         fatalError("Couldn't find \(filename) in main bundle.")
     }
     

@@ -3,9 +3,11 @@ import Foundation
 struct TokenResponse: Codable {
     let expiresIn: Int
     let accessToken, idToken, scope, tokenType: String
+    let refreshToken: String?
     
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
+        case refreshToken = "refresh_token"
         case expiresIn = "expires_in"
         case idToken = "id_token"
         case scope
@@ -31,7 +33,7 @@ extension TokenResponse {
     }
     
     private func decodeSegment(segment: Segment) -> String? {
-        base64Decode(getTokenSegments()[segment.rawValue])?.prettyJson
+        return base64Decode(getTokenSegments()[segment.rawValue])?.prettyJson
     }
     
     private func base64Decode(_ base64: String) -> Data? {

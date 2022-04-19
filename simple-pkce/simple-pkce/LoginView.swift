@@ -12,24 +12,32 @@ struct LoginView: View {
                     .resizable()
                     .scaledToFit()
                     .padding(.bottom, 20)
-                HStack {
-                    Image(systemName: "person.circle")
-                    Button("Sign In") {
-                        isLoading.toggle()
-                        Authenticator(completion: { res, err in
-                            DispatchQueue.main.async {
+                if isLoading {
+                    ProgressView()
+                } else {
+                    HStack {
+                        Image(systemName: "person.circle")
+                        Button("Sign In") {
+                            if !modelData.checkStored() {
                                 isLoading.toggle()
-                                modelData.tokenResponse = res
-                                error = err
+                                Authenticator(completion: { res, err in
+                                    DispatchQueue.main.async {
+                                        isLoading.toggle()
+                                        modelData.setToken(token: res)
+                                        error = err
+                                    }
+                                }).authenticate()
                             }
-                        }).authenticate()
+                        }
                     }
+                    .frame(width: 160, height: 20, alignment: .center)
+                    .padding()
+                    .foregroundColor(modelData.theme.accentColor)
+                    .background(modelData.theme.mainColor)
+                    .cornerRadius(30)
+                    .disabled(isLoading)
                 }
-                .frame(width: 160, height: 20, alignment: .center)
-                .padding()
-                .foregroundColor(modelData.theme.accentColor)
-                .background(modelData.theme.mainColor)
-                .cornerRadius(30)
+                
                 if error != nil {
                     Text(error?.localizedDescription ?? "error signing in")
                         .foregroundColor(.red)
@@ -37,7 +45,7 @@ struct LoginView: View {
             }
             .padding()
         }
-        .disabled(isLoading)
+        
     }
 }
 

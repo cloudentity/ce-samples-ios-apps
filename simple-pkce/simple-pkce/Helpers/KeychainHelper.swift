@@ -36,7 +36,6 @@ final class KeychainHelper {
         let status = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
         guard status != errSecItemNotFound else {
             // throw KeychainError.noPassword
-            print("token not found")
             return
         }
         guard status == errSecSuccess else {
@@ -69,7 +68,6 @@ final class KeychainHelper {
         guard status != errSecItemNotFound else {
             // throw KeychainError.noPassword
             // happens on first pass
-            print("token not found")
             return nil
         }
         guard status == errSecSuccess else {
@@ -80,16 +78,14 @@ final class KeychainHelper {
         
         guard let existingItem = item as? [String : Any],
             let tokenData = existingItem[kSecValueData as String] as? Data,
-            let token = String(data: tokenData, encoding: String.Encoding.utf8),
-                let account = existingItem[kSecAttrAccount as String] as? String 
+            let token = String(data: tokenData, encoding: String.Encoding.utf8)
+//                let account = existingItem[kSecAttrAccount as String] as? String
         else {
             // throw KeychainError.unexpectedPasswordData
             print("unexepcted password \(KeychainError.noToken)")
             return nil
         }
-        print(account)
-
-        print("got token \(token)")
+        
         return token
     }
     

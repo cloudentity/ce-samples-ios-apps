@@ -8,13 +8,13 @@ struct ContentView: View {
             if modelData.tokenResponse != nil {
                 NavigationView {
                     HomeView()
-                        .toolbar {
-                            Button(action: {
-                                modelData.setToken(token: nil)
-                            }) {
-                               Image(systemName: "rectangle.portrait.and.arrow.right")
-                            }
+                    .toolbar {
+                        Button(action: {
+                            modelData.setToken(token: nil)
+                        }) {
+                           Image(systemName: "rectangle.portrait.and.arrow.right")
                         }
+                    }
                 }
             } else {
                 LoginView()

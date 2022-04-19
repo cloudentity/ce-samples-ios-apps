@@ -3,8 +3,8 @@ import SwiftUI
 struct ResourceView: View {
     @ObservedObject var resource: Remote<String>
     
-    init(_ url: URL, token: String?) {
-        resource = Remote(token: token,url: url, transform: { $0.prettyJson })
+    init(_ modelData: ModelData, url: URL) {
+        resource = Remote(modelData: modelData, url: url, transform: { $0.prettyJson })
     }
 
     var body: some View {
@@ -31,6 +31,6 @@ struct ResourceView: View {
 
 struct ResourceView_Previews: PreviewProvider {
     static var previews: some View {
-        ResourceView(URL(string: "https://gorest.co.in/public/v2/users/2906")!, token: "abc123")
+        ResourceView(ModelData(), url: URL(string: "https://gorest.co.in/public/v2/users/2906")!)
     }
 }

@@ -28,10 +28,10 @@ struct HomeView: View {
             }
             .tag(Tab.header)
             ScopesView(modelData: modelData)
-                .tabItem {
-                    Label("Resources", systemImage: "icloud.and.arrow.up.fill")
-                }
-                .tag(Tab.scopes)
+            .tabItem {
+                Label("Resources", systemImage: "icloud.and.arrow.up.fill")
+            }
+            .tag(Tab.scopes)
         }
         .padding()
         .navigationTitle(selection.rawValue)

@@ -1,6 +1,18 @@
 import Foundation
 
 extension URL {
+    
+    func getRefreshToken(clientID: String, token: String, urlScheme: String) -> URLRequest {
+        var components = URLComponents()
+        components.queryItems = [
+            URLQueryItem(name:"client_id", value: clientID),
+            URLQueryItem(name:"refresh_token", value: token),
+            URLQueryItem(name:"grant_type", value: "refresh_token"),
+        ]
+
+        return buildRequest(components: components)
+    }
+    
     func getTokenRequest(clientID: String, verifier: String, code: String, urlScheme: String) -> URLRequest {
         var components = URLComponents()
         components.queryItems = [
@@ -10,7 +22,11 @@ extension URL {
             URLQueryItem(name:"code_verifier", value: verifier),
             URLQueryItem(name:"code", value: code),
         ]
-
+        
+        return buildRequest(components: components)
+    }
+    
+    func buildRequest(components: URLComponents) -> URLRequest {
         let headers: [String:String] = ["Content-Type": "application/x-www-form-urlencoded"]
         
         var request = URLRequest(url: self)
@@ -23,7 +39,6 @@ extension URL {
     
     func getAuthURL(clientID: String, challenge: String, urlScheme: String) -> URL? {
         guard var components = URLComponents(string: self.absoluteString) else {
-            print("unable to get URL components from authURL")
             return nil
         }
         
@@ -36,7 +51,7 @@ extension URL {
             URLQueryItem(name:"code_challenge_method", value: "S256"),
         ]
         
-        return components.url!
+        return components.url
     }
     
     func getQueryParam(value: String) -> String? {
