@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AuthorizeEndpoint</key>
+	<string>https://cloudentity-bbray.authz.cloudentity.io/cloudentity-bbray/mobile-demo/oauth2/authorize</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleURLName</key>
+			<string>com.example.simple-pkce</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>oauth</string>
+			</array>
+		</dict>
+	</array>
+	<key>ClientID</key>
+	<string>c8tr6emd59jgck779990</string>
+	<key>TokenEndpoint</key>
+	<string>https://cloudentity-bbray.authz.cloudentity.io/cloudentity-bbray/mobile-demo/oauth2/token</string>
+</dict>
+</plist>
