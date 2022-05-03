@@ -20,16 +20,16 @@ Care must be taken when using OAuth 2.0 in mobile applications since these are u
  ![turn on Enforce PKCE for all clients](img/enforce_all.png?raw=true.png)
 
  Copy the Client ID, token endpoint, and authorization endpoints from the OAuth tab. Then set the redirect URI. The redirect URI should include your custom URL scheme and the reverse DNS string that incorporates your company's domain and application name. This is important to ensure uniqueness. 
-![set application redirect_uri](https://github.com/cloudentity/ce-samples-ios-apps/img/redirect_uri.png?raw=true.png)
+![set application redirect_uri](img/redirect_uri.png?raw=true.png)
 
  In the sample iOS application, the identifier is set to 'com.example.simple-pkce' and the scheme is set to 'oauth' as shown in the next section. Therefore, in your workspace client application set the redirect URI to 'oauth://com.example.simple-pkce'. In a real application choose an appropirate scheme and reverse DNS string.
 
 ## Preparing the sample iOS application
 Set the values of the Client ID, token endpoint URL, authorize endpoint URL in the Info.plist of the sample application in Custom iOS Target Properties in Xcode.
-![set application parameters in XCode](https://github.com/cloudentity/ce-samples-ios-apps/img/plist_values.png?raw=true.png)
+![set application parameters in XCode](img/plist_values.png?raw=true.png)
 
 In URL Types set the Identifier to the reverse DNS string that incorporates your domain and application name and set URL Schemes to your chosen scheme ensuring that the values match the redirect URI that was set in the previous section. If the values set in the previous section match the sample application then no change is required for this step.
-![url scheme and identifier](https://github.com/cloudentity/ce-samples-ios-apps/img/scheme_settings_identifier.png?raw=true.png)
+![url scheme and identifier](img/scheme_settings_identifier.png?raw=true.png)
 
 You can also set the values for the identifier, scheme, endpoints URLs, and client ID directly in the Info.plis as shown.
 ```xml
@@ -65,10 +65,10 @@ Note that a custom URL scheme is used. Since we are using the iOS SDK Authentica
 ## Running the application
 
 Run the application and verify there are no errors. You should see the sign-in screen as shown below. 
-![sign in screen](https://github.com/cloudentity/ce-samples-ios-apps/img/main.png?raw=true.png)
+![sign in screen](img/main.png?raw=true.png)
 
 Now log in to the application by tapping 'Sign In'. You should see no errors and be presented with the Cloudentity OAuth sign in modal. 
-![oauth sign in screen](https://github.com/cloudentity/ce-samples-ios-apps/img/modal.png?raw=true.png)
+![oauth sign in screen](img/modal.png?raw=true.png)
 
 You can view the token header and the payload by selecting the corresponding tabs from the home screen upon successful login. Additionally, there is a tab for Resources. The Resources tab will be explored further in the next section.
 
