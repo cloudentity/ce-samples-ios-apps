@@ -14,7 +14,8 @@ Care must be taken when using OAuth 2.0 in mobile applications since these are u
 
 
  ## Prepare Cloudentity Workspace
- Configure your workspace by creating a new client application or use an existing application. ![Set the Token Endpoint Authentication Method to None](img/auth_method.png?raw=true.png)
+ Configure your workspace by creating a new client application or use an existing application. In your client application set the token endpoint authentication method to `None`.
+ ![Set the Token Endpoint Authentication Method to None](img/auth_method.png?raw=true.png)
  
  Optionally, in Auth Settings under the General tab turn on 'Enforce PKCE for all clients'. 
  ![turn on Enforce PKCE for all clients](img/enforce_all.png?raw=true.png)
