@@ -25,10 +25,11 @@ Care must be taken when using OAuth 2.0 in mobile applications since these are u
  Copy the Client ID, token endpoint, and authorization endpoints from the OAuth tab. Then set the redirect URI. The redirect URI should include your custom URL scheme and the reverse DNS string for your domain and application name to ensure uniqueness. 
 ![set application redirect_uri](img/redirect_uri.png?raw=true.png)
 
- In the sample iOS application, the identifier is set to 'com.example.simple-pkce' and the scheme is set to 'oauth' as shown in the next section. Therefore, in your workspace client application set the redirect URI to 'oauth://com.example.simple-pkce'. In a real application choose an appropirate scheme and reverse DNS string.
+ In the sample iOS application, the identifier is set to 'com.example.simple-pkce' and the scheme is set to 'oauth' in the Info.plist as shown in the next section. Therefore, in your workspace client application set the redirect URI to 'oauth://com.example.simple-pkce' as shown above. In a real application choose an appropriate scheme and reverse DNS string.
 
 ## Preparing the sample iOS application
 Set the values of the Client ID, token endpoint URL, authorize endpoint URL in the Info.plist of the sample application in Custom iOS Target Properties in Xcode.
+
 ![set application parameters in XCode](img/plist_values.png?raw=true.png)
 
 In URL Types set the Identifier to the reverse DNS string that incorporates your domain and application name and set URL Schemes to your chosen scheme ensuring that the values match the redirect URI that was set in the previous section. If the values set in the previous section match the sample application then no change is required for this step.
