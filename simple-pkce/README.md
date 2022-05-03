@@ -14,7 +14,7 @@ Care must be taken when using OAuth 2.0 in mobile applications since these are u
 
 
  ## Prepare Cloudentity Workspace
- Configure your workspace by creating a new client application or use an existing application. Instructions on creating a client application can be found in the [developer portal](https://developer.cloudentity.com/get_started/getting_started_with_cloudentity_access_management/)
+ Configure your workspace by creating a new client application or use an existing application. Instructions on creating a client application can be found in the [Cloudentity Developer Portal](https://developer.cloudentity.com/get_started/getting_started_with_cloudentity_access_management/)
  
  In your client application set the token endpoint authentication method to `None`.
  ![Set the Token Endpoint Authentication Method to None](img/auth_method.png?raw=true.png)
