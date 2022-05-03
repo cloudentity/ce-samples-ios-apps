@@ -35,7 +35,7 @@ Set the values of the Client ID, token endpoint URL, authorize endpoint URL in t
 In URL Types set the Identifier to the reverse DNS string that incorporates your domain and application name and set URL Schemes to your chosen scheme ensuring that the values match the redirect URI that was set in the previous section. If the values set in the previous section match the sample application then no change is required for this step.
 ![url scheme and identifier](img/scheme_settings_identifier.png?raw=true.png)
 
-You can also set the values for the identifier, scheme, endpoints URLs, and client ID directly in the Info.plis as shown.
+You can also set the values for the identifier, scheme, endpoints URLs, and client ID directly in the Info.plist as shown.
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
