@@ -22,7 +22,7 @@ Care must be taken when using OAuth 2.0 in mobile applications since these are u
  Optionally, in Auth Settings under the General tab turn on 'Enforce PKCE for all clients'. 
  ![turn on Enforce PKCE for all clients](img/enforce_all.png?raw=true.png)
 
- Copy the Client ID, token endpoint, and authorization endpoints from the OAuth tab. Then set the redirect URI. The redirect URI should include your custom URL scheme and the reverse DNS string for your domain and application name. This is important to ensure uniqueness. 
+ Copy the Client ID, token endpoint, and authorization endpoints from the OAuth tab. Then set the redirect URI. The redirect URI should include your custom URL scheme and the reverse DNS string for your domain and application name to ensure uniqueness. 
 ![set application redirect_uri](img/redirect_uri.png?raw=true.png)
 
  In the sample iOS application, the identifier is set to 'com.example.simple-pkce' and the scheme is set to 'oauth' as shown in the next section. Therefore, in your workspace client application set the redirect URI to 'oauth://com.example.simple-pkce'. In a real application choose an appropirate scheme and reverse DNS string.
