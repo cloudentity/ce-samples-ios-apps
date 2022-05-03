@@ -125,7 +125,7 @@ let session = ASWebAuthenticationSession(url: authURL, callbackURLScheme: "oauth
         session.start()
 ```
 
-The `fetchToken(code: String)` method retreives the code verifier and then creats a URLRequest using the code verifier and the authorization code returned from the Cloudentity client application. A request for the token to the token endpoint is then made. If there is an error then the UI is updated with the error, otherwise the token is saved and the user is presented with the application home screen.
+The `fetchToken(code: String)` method retrieves the code verifier and then creats a URLRequest using the code verifier and the authorization code returned from the Cloudentity client application. A request for the token to the token endpoint is then made. If there is an error then the UI is updated with the error, otherwise the token is saved and the user is presented with the application home screen.
 
 ```swift
 private func fetchToken(code: String) {
