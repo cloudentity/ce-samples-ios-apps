@@ -56,7 +56,7 @@ final class Authenticator: NSObject, ASWebAuthenticationPresentationContextProvi
         let request = url.getTokenRequest(clientID: AuthConfig.clientID, verifier: verifier, code: code, urlScheme: AuthConfig.urlScheme)
         
         URLSession.shared.dataTask(with: request) { [weak self]
-            data,_,err in
+            data,resp,err in
             if err != nil {
                 self?.completion(nil, .tokenRequestFailed(err!))
                 return
@@ -71,6 +71,10 @@ final class Authenticator: NSObject, ASWebAuthenticationPresentationContextProvi
                     let v = try JSONDecoder().decode(TokenResponse.self, from: data)
                     self?.completion(v, nil)
                 } catch {
+                    if let httpResp = resp as? HTTPURLResponse {
+                        self?.completion(nil, .resourceError("\(httpResp.statusCode)"))
+                        return
+                    }
                     self?.completion(nil, .unableToParseTokenResponse)
                 }
             }
