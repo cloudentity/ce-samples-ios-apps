@@ -14,10 +14,10 @@ Care must be taken when using OAuth 2.0 in mobile applications since these are u
 
 
  ## Prepare Cloudentity Workspace
- Configure your workspace by creating a new client application or use an existing application. ![Set the Token Endpoint Authentication Method to None](https://github.com/cloudentity/ce-samples-ios-apps/img/auth_method.png?raw=true.png)
+ Configure your workspace by creating a new client application or use an existing application. ![Set the Token Endpoint Authentication Method to None](img/auth_method.png?raw=true.png)
  
  Optionally, in Auth Settings under the General tab turn on 'Enforce PKCE for all clients'. 
- ![turn on Enforce PKCE for all clients](https://github.com/cloudentity/ce-samples-ios-apps/img/enforce_all.png?raw=true.png)
+ ![turn on Enforce PKCE for all clients](img/enforce_all.png?raw=true.png)
 
  Copy the Client ID, token endpoint, and authorization endpoints from the OAuth tab. Then set the redirect URI. The redirect URI should include your custom URL scheme and the reverse DNS string that incorporates your company's domain and application name. This is important to ensure uniqueness. 
 ![set application redirect_uri](https://github.com/cloudentity/ce-samples-ios-apps/img/redirect_uri.png?raw=true.png)
