@@ -55,23 +55,23 @@ final class Authenticator: NSObject, ASWebAuthenticationPresentationContextProvi
         let verifier = self.codeGenerator.getVerifier()
         let request = url.getTokenRequest(clientID: AuthConfig.clientID, verifier: verifier, code: code, urlScheme: AuthConfig.urlScheme)
         
-        URLSession.shared.dataTask(with: request) { [weak self]
+        URLSession.shared.dataTask(with: request) {
             data,_,err in
             if err != nil {
-                self?.completion(nil, .tokenRequestFailed(err!))
+                self.completion(nil, .tokenRequestFailed(err!))
                 return
             }
             
             DispatchQueue.main.async {
                 guard let data = data else {
-                    self?.completion(nil, .unableToParseTokenResponse)
+                    self.completion(nil, .unableToParseTokenResponse)
                     return
                 }
                 do {
                     let v = try JSONDecoder().decode(TokenResponse.self, from: data)
-                    self?.completion(v, nil)
+                    self.completion(v, nil)
                 } catch {
-                    self?.completion(nil, .unableToParseTokenResponse)
+                    self.completion(nil, .unableToParseTokenResponse)
                 }
             }
         }.resume()
