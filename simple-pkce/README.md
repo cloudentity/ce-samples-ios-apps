@@ -70,10 +70,10 @@ Note that a custom URL scheme is used. Since we are using the iOS SDK, Authentic
 
 Run the application and verify there are no errors. You should see the sign-in screen as shown below. 
 <p align="center">
-  <img src="img/main.png" alt="sign in screen" style="max-width: 100%; border: 2px solid #555;"" />
+  <img src="img/main.png" alt="sign-in screen" style="max-width: 100%; border: 2px solid #555;"" />
 </p>
 
-Now log in to the application by tapping 'Sign In'. You should see no errors and be presented with the Cloudentity OAuth sign in modal. 
+Now log in to the application by tapping 'Sign In'. You should see no errors and be presented with the Cloudentity OAuth sign-in modal. 
 <p align="center">
   <img src="img/modal.png" alt="auth sign in screenshot" style="max-width: 100%; border: 2px solid #555;"" />
 </p>
