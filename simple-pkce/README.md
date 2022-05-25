@@ -19,7 +19,7 @@ Care must be taken when using OAuth 2.0 in mobile applications since these are u
  In your client application set the token endpoint authentication method to `None`.
  ![Set the Token Endpoint Authentication Method to None](img/auth_method.png?raw=true.png)
  
- Optionally, in Auth Settings under the General tab turn on 'Enforce PKCE for all clients'. 
+ Optionally, in Auth Settings under the General tab turn on `Enforce PKCE for all clients`. 
  ![turn on Enforce PKCE for all clients](img/enforce_all.png?raw=true.png)
 
  Copy the Client ID, token endpoint, and authorization endpoints from the OAuth tab. Then set the redirect URI. The redirect URI should include your custom URL scheme and the reverse DNS string for your domain and application name to ensure uniqueness. 
