@@ -32,7 +32,7 @@ Set the values of the Client ID, token endpoint URL, authorize endpoint URL in t
 
 ![set application parameters in XCode](img/plist_values.png?raw=true.png)
 
-In URL Types set the Identifier to the reverse DNS string that incorporates your domain and application name and set URL Schemes to your chosen scheme ensuring that the values match the redirect URI that was set in the previous section. If the values set in the previous section match the sample application then no change is required for this step.
+In URL Types set the Identifier to the reverse DNS string that incorporates your domain and application name and set URL Schemes to your chosen scheme ensuring that the values match the redirect URI that was set in the previous section. If the values set in the previous section are left as the defaults in the sample application then no change is required for this step.
 ![url scheme and identifier](img/scheme_settings_identifier.png?raw=true.png)
 
 You can also set the values for the identifier, scheme, endpoints URLs, and client ID directly in the Info.plist as shown.
