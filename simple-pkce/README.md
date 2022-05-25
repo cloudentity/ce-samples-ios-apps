@@ -17,23 +17,33 @@ Care must be taken when using OAuth 2.0 in mobile applications since these are u
  Configure your workspace by creating a new client application or use an existing application. Instructions on creating a client application can be found in the [Cloudentity Developer Portal](https://developer.cloudentity.com/get_started/getting_started_with_cloudentity_access_management/)
  
  In your client application set the token endpoint authentication method to `None`.
- ![Set the Token Endpoint Authentication Method to None](img/auth_method.png?raw=true.png)
+<p align="center">
+  <img src="img/auth_method.png" alt="setting the token endpoint method" style="max-width: 100%; border: 2px solid #555;"" />
+</p>
  
  Optionally, in Auth Settings under the General tab turn on `Enforce PKCE for all clients`. 
- ![turn on Enforce PKCE for all clients](img/enforce_all.png?raw=true.png)
+<p align="center">
+  <img src="img/enforce_all.png" alt="turn on force PKCE for all clients" style="max-width: 100%; border: 2px solid #555;"" />
+</p>
 
  Copy the Client ID, token endpoint, and authorization endpoints from the OAuth tab. Then set the redirect URI. The redirect URI should include your custom URL scheme and the reverse DNS string for your domain and application name to ensure uniqueness. 
-![set application redirect_uri](img/redirect_uri.png?raw=true.png)
+<p align="center">
+  <img src="img/redirect_uri.png" alt="set application redirect uri" style="max-width: 100%; border: 2px solid #555;"" />
+</p>
 
  In the sample iOS application, the identifier is set to 'com.example.simple-pkce' and the scheme is set to 'oauth' in the Info.plist as shown in the next section. Therefore, in your workspace client application set the redirect URI to 'oauth://com.example.simple-pkce' as shown above. In a real application choose an appropriate scheme and reverse DNS string.
 
 ## Preparing the sample iOS application
 Set the values of the Client ID, token endpoint URL, authorize endpoint URL in the Info.plist of the sample application in Custom iOS Target Properties in Xcode.
 
-![set application parameters in XCode](img/plist_values.png?raw=true.png)
+<p align="center">
+  <img src="img/plist_values.png" alt="set application parameters in Xcode" style="max-width: 100%; border: 2px solid #555;"" />
+</p>
 
 In URL Types set the Identifier to the reverse DNS string that incorporates your domain and application name and set URL Schemes to your chosen scheme ensuring that the values match the redirect URI that was set in the previous section. If the values set in the previous section are left as the defaults in the sample application then no change is required for this step.
-![url scheme and identifier](img/scheme_settings_identifier.png?raw=true.png)
+<p align="center">
+  <img src="img/scheme_settings_identifier.png" alt="url scheme and identifier" style="max-width: 100%; border: 2px solid #555;"" />
+</p>
 
 You can also set the values for the identifier, scheme, endpoints URLs, and client ID directly in the Info.plist as shown.
 ```xml
