@@ -73,8 +73,6 @@ Run the application and verify there are no errors. You should see the sign-in s
   <img src="img/main.png" alt="sign in screen" style="max-width: 100%; border: 2px solid #555;"" />
 </p>
 
-![sign in screen](img/main.png?raw=true.png)
-
 Now log in to the application by tapping 'Sign In'. You should see no errors and be presented with the Cloudentity OAuth sign in modal. 
 ![oauth sign in screen](img/modal.png?raw=true.png)
 
