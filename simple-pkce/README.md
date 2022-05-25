@@ -84,7 +84,7 @@ You can view the token header and the payload by selecting the corresponding tab
 
 The relevant portion of the code for handling the authentication flow can be seen in the Helpers folder in Authenticator.swift. The Authenticator class uses AuthenticationServices to simplify the authentication flow. It also restricts access to the browser presented to the user because the application developer cannot access what the user enters since it is an external user-agent. Developers should not use an embedded webview since the users' entries could be visible to the developer. Furthermore, an embedded view would not share session data with the mobile applications primary browser.  
 
-The `authenticate()` method starts the authentication flow by first generating a code verifier as explained in [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636). The `authenticate()` method then gets the authentication endpoint URL and required parameters. In the next section the authentication URL and its parameters will be explored in more detail. In the event the authentication URL is not set then an error is returned. Notice that since PKCE is being used a code challenge, generated from the code verifier, is included as required by [RFC 7637](https://datatracker.ietf.org/doc/html/rfc7636)
+The `authenticate()` method starts the authentication flow by first generating a code verifier as explained in [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636). The `authenticate()` method then gets the authentication endpoint URL and required parameters. In the next section the authentication URL and its parameters will be explored in more detail. In the event the authentication URL is not set then an error is returned. Notice that since PKCE is being used a code challenge, generated from the code verifier, is included as required by [RFC 7636](https://datatracker.ietf.org/doc/html/rfc7636)
 
 ```swift
 func authenticate() {
@@ -96,7 +96,7 @@ func authenticate() {
         }
 ```
 
-An ASWebAuthenticationSession is obtained by providing the authentication URL with required parameters and the callback URL scheme. In the callback a check is performed for an error. If there is no error the callback URL is verified to be present and it is verified that no error was returned from the OAuth server. Finally, the code is extracted from the query parameters and passed to `fetchToken(code: String)`.
+An ASWebAuthenticationSession is obtained by providing the authentication URL with required parameters and the callback URL scheme. In the callback a check is performed for an error. If there is no error then the callback URL is verified to be present and it is verified that no error was returned from the OAuth server. Finally, the code is extracted from the query parameters and passed to `fetchToken(code: String)`.
 
 ```swift
 let session = ASWebAuthenticationSession(url: authURL, callbackURLScheme: "oauth")
@@ -129,7 +129,7 @@ let session = ASWebAuthenticationSession(url: authURL, callbackURLScheme: "oauth
         session.start()
 ```
 
-The `fetchToken(code: String)` method retrieves the code verifier and then creats a URLRequest using the code verifier and the authorization code returned from the Cloudentity client application. A request for the token to the token endpoint is then made. If there is an error then the UI is updated with the error, otherwise the token is saved and the user is presented with the application home screen.
+The `fetchToken(code: String)` method retrieves the code verifier and then creats a URLRequest using the code verifier and the authorization code returned from the Cloudentity OAuth server. A request for the token to the token endpoint is then made. If there is an error then the UI is updated with the error, otherwise the token is saved and the user is presented with the application home screen.
 
 ```swift
 private func fetchToken(code: String) {
@@ -141,33 +141,33 @@ private func fetchToken(code: String) {
         let verifier = self.codeGenerator.getVerifier()
         let request = url.getTokenRequest(clientID: AuthConfig.clientID, verifier: verifier, code: code, urlScheme: AuthConfig.urlScheme)
         
-        URLSession.shared.dataTask(with: request) { [weak self]
+        URLSession.shared.dataTask(with: request) {
             data,_,err in
             if err != nil {
-                self?.completion(nil, .tokenRequestFailed(err!))
+                self.completion(nil, .tokenRequestFailed(err!))
                 return
             }
             
             DispatchQueue.main.async {
                 guard let data = data else {
-                    self?.completion(nil, .unableToParseTokenResponse)
+                    self.completion(nil, .unableToParseTokenResponse)
                     return
                 }
                 do {
                     let v = try JSONDecoder().decode(TokenResponse.self, from: data)
-                    self?.completion(v, nil)
+                    self.completion(v, nil)
                 } catch {
-                    self?.completion(nil, .unableToParseTokenResponse)
+                    self.completion(nil, .unableToParseTokenResponse)
                 }
             }
         }.resume()
-    }
+}
 ```
 
-When making an authorization request scopes are requested. In addition to the code challenge the request also requires the code challenge method, the redirect URI, the client ID, and in this case a response type of `code`. 
+When making an authorization request scopes are requested. In addition to the code challenge, the request also requires the code challenge method, the redirect URI, the client ID, and in this case a response type of `code`. 
 
 
-This authorization URL is constructed in URLExtensions.swift in the `getAuthURL` method. In addition to the usual parameters, the `code_challenge` and `code_challenge_method` are sent in the request. This is also where the requested scopes are added to the request.
+The authorization URL is constructed in URLExtensions.swift in the `getAuthURL` method. In addition to the usual parameters, the `code_challenge` and `code_challenge_method` are sent in the request. This is also where the requested scopes are added to the request.
  
  ```swift
  func getAuthURL(clientID: String, challenge: String, urlScheme: String) -> URL? {
@@ -205,7 +205,7 @@ func getTokenRequest(clientID: String, verifier: String, code: String, urlScheme
     }
 ```
 
-Recalling the Resources tab in the sample application, the scopes can be used to control which buttons are present, the titles the buttons have, and the resource that will be accessed when a button is tapped. In the sample application the scopes are set to `email openid profile`. Open the `scopeData.json` file under Resources in the project.
+Recall the Resources tab in the sample application. The scopes can be used to control which buttons are present, the titles the buttons have, and the resource that will be accessed when a button is tapped. In the sample application the scopes are set to `email openid profile`. Open the `scopeData.json` file under Resources in the project.
 
 ```json
 [
@@ -233,7 +233,9 @@ Recalling the Resources tab in the sample application, the scopes can be used to
 ```
 
 This file contains a list of possible buttons as shown.
-![resoure buttons](https://github.com/cloudentity/ce-samples-ios-apps/img/buttons.png?raw=true.png)
+<p align="center">
+  <img src="img/buttons.png" alt="resource buttons" style="max-width: 100%; border: 2px solid #555;"" />
+</p>
 
 Notice the sample application requested three scopes, `email openid profile`, but `scopeData.json` shows four entries. Upon receiving authorization, the application will iterate over the scopes in `scopeData.json` and for each scope granted to the application if there is a corresponding scope in this file then a button will be displayed.  Each entry in `scopeData.json` represents a JSON object with three fields. `scope` is a scope that the application could request. The `url` is for a protected resource that the application would like to access. The `title` key sets the title that is displayed on the button. Try changing the `title` value for a few buttons and run the application to see the updated title. Change scopes requested by removing one of the scopes and verify that the application only displays two buttons after logging in to the application.
 
