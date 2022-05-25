@@ -70,7 +70,7 @@ Note that a custom URL scheme is used. Since we are using the iOS SDK, Authentic
 
 Run the application and verify there are no errors. You should see the sign-in screen as shown below. 
 <p align="center">
-  <img src="img/main.png" alt="sign in screen" style="border: 2px solid #555;" />
+  <img src="img/main.png" alt="sign in screen" style="max-width: 90%; border: 2px solid #555;" />
 </p>
 
 ![sign in screen](img/main.png?raw=true.png)
