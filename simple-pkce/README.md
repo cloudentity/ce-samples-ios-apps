@@ -74,7 +74,9 @@ Run the application and verify there are no errors. You should see the sign-in s
 </p>
 
 Now log in to the application by tapping 'Sign In'. You should see no errors and be presented with the Cloudentity OAuth sign in modal. 
-![oauth sign in screen](img/modal.png?raw=true.png)
+<p align="center">
+  <img src="img/modal.png" alt="auth sign in screenshot" style="max-width: 100%; border: 2px solid #555;"" />
+</p>
 
 You can view the token header and the payload by selecting the corresponding tabs from the home screen upon successful login. Additionally, there is a tab for Resources. The Resources tab will be explored further in the next section.
 
