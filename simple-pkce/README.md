@@ -64,7 +64,7 @@ You can also set the values for the identifier, scheme, endpoints URLs, and clie
 </plist>
 ```
 
-Note that a custom URL scheme is used. Since we are using the iOS SDK AuthenticationServices Apple helps protect the application from rogue apps getting the callback from the authorization server. However, when not using AuthenticationServices it is possible for multiple applications to register the same callback. This is where PKCE will be helpful because any app that receives the callback with the authorization code will also need the corresponding code verifier for the code challenge presented to the authorization server. This will be explored more in the following sections.
+Note that a custom URL scheme is used. Since we are using the iOS SDK, AuthenticationServices provided by the iOS SDK helps protect the application from rogue applications getting the callback from the authorization server. However, when not using AuthenticationServices it is possible for multiple applications to register the same callback. This is where PKCE will be helpful because any app that receives the callback with the authorization code will also need the corresponding code verifier for the code challenge presented to the authorization server. This will be explored more in the following sections.
 
 ## Running the application
 
