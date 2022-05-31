@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>AuthorizeEndpoint</key>
-	<string>https://cloudentity-bbray.authz.cloudentity.io/cloudentity-bbray/mobile-demo/oauth2/authorize</string>
+	<string></string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -18,8 +18,8 @@
 		</dict>
 	</array>
 	<key>ClientID</key>
-	<string>c8tr6emd59jgck779990</string>
+	<string></string>
 	<key>TokenEndpoint</key>
-	<string>https://cloudentity-bbray.authz.cloudentity.io/cloudentity-bbray/mobile-demo/oauth2/token</string>
+	<string></string>
 </dict>
 </plist>
