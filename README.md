@@ -24,4 +24,4 @@ Relevant Links
  - [OAUTH](https://datatracker.ietf.org/doc/html/rfc6749)
  - [OAUTH for Native Apps](https://datatracker.ietf.org/doc/html/rfc8252)
  - [PKCE](https://datatracker.ietf.org/doc/html/rfc7636)
- - [App Dev Tutorials](https://developer.cloudentity.com/app_dev_tutorials)
+ - [App Dev Tutorials](https://developer.cloudentity.com/app_dev_tutorials/)
