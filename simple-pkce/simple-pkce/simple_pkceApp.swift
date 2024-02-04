@@ -1,6 +1,6 @@
 import SwiftUI
 
-@main
+  @main
 struct simple_pkceApp: App {
     @StateObject private var modelData = ModelData()
     var body: some Scene {

@@ -46,7 +46,7 @@ extension URL {
             URLQueryItem(name:"client_id", value: clientID),
             URLQueryItem(name:"redirect_uri", value: urlScheme),
             URLQueryItem(name:"response_type", value: "code"),
-            URLQueryItem(name:"scope", value: "email openid profile"),
+            URLQueryItem(name:"scope", value: "openid accounts balance transfer"),
             URLQueryItem(name:"code_challenge", value: challenge),
             URLQueryItem(name:"code_challenge_method", value: "S256"),
         ]

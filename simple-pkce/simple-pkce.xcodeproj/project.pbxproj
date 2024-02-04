@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		303539FE29D21CDE0014DA08 /* SeamlessAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303539FD29D21CDE0014DA08 /* SeamlessAuthenticator.swift */; };
 		765B72FD2805EB34000CFA10 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B72F72805EB34000CFA10 /* ContentView.swift */; };
 		765B72FE2805EB34000CFA10 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B72F82805EB34000CFA10 /* LoginView.swift */; };
 		765B72FF2805EB34000CFA10 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 765B72F92805EB34000CFA10 /* Config.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		303539FD29D21CDE0014DA08 /* SeamlessAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeamlessAuthenticator.swift; sourceTree = "<group>"; };
 		765B72F72805EB34000CFA10 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		765B72F82805EB34000CFA10 /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		765B72F92805EB34000CFA10 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				765B73132805EBC3000CFA10 /* KeychainHelper.swift */,
 				765B73142805EBC3000CFA10 /* Remote.swift */,
 				765B73162805EBC3000CFA10 /* URLExtensions.swift */,
+				303539FD29D21CDE0014DA08 /* SeamlessAuthenticator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				765B730C2805EBAE000CFA10 /* ModelData.swift in Sources */,
 				765B730E2805EBAE000CFA10 /* Theme.swift in Sources */,
 				765B730F2805EBAE000CFA10 /* ScopeResource.swift in Sources */,
+				303539FE29D21CDE0014DA08 /* SeamlessAuthenticator.swift in Sources */,
 				765B731C2805EBC3000CFA10 /* Authenticator.swift in Sources */,
 				765B731D2805EBC3000CFA10 /* URLExtensions.swift in Sources */,
 				765B73192805EBC3000CFA10 /* DataExtensions.swift in Sources */,

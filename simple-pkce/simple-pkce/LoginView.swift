@@ -8,7 +8,7 @@ struct LoginView: View {
     var body: some View {
         ZStack {
             VStack {
-                Image("Black")
+                Image("Financroo")
                     .resizable()
                     .scaledToFit()
                     .padding(.bottom, 20)
@@ -36,6 +36,28 @@ struct LoginView: View {
                     .background(modelData.theme.mainColor)
                     .cornerRadius(30)
                     .disabled(isLoading)
+                    
+//                    HStack {
+//                        Image(systemName: "person.circle")
+//                        Button("Sign In 2") {
+//                            if !modelData.checkStored() {
+//                                isLoading.toggle()
+//                                SeamlessAuthenticator(completion: { res, err in
+//                                    DispatchQueue.main.async {
+//                                        isLoading.toggle()
+//                                        modelData.setToken(token: res)
+//                                        error = err
+//                                    }
+//                                }).authenticate()
+//                            }
+//                        }
+//                    }
+//                    .frame(width: 160, height: 20, alignment: .center)
+//                    .padding()
+//                    .foregroundColor(modelData.theme.accentColor)
+//                    .background(modelData.theme.mainColor)
+//                    .cornerRadius(30)
+//                    .disabled(isLoading)
                 }
                 
                 if error != nil {

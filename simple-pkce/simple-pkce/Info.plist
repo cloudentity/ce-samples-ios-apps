@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>AuthorizeEndpoint</key>
-	<string></string>
+	<string>https://lovatt-org.us.authz.cloudentity.io/lovatt-org/default/oauth2/authorize</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>CFBundleURLName</key>
-			<string>com.example.simple-pkce</string>
+			<string>com.cloudentity.simple-pkce</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>oauth</string>
+				<string>iosmobile</string>
 			</array>
 		</dict>
 	</array>
 	<key>ClientID</key>
-	<string></string>
+	<string>c9asn8s52872b2unjag0</string>
 	<key>TokenEndpoint</key>
-	<string></string>
+	<string>https://lovatt-org.us.authz.cloudentity.io/lovatt-org/default/oauth2/token</string>
 </dict>
 </plist>
